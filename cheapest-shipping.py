@@ -26,3 +26,21 @@ def drone_shipping_cost(weight):
 
 
 print("$%.2f" % drone_shipping_cost(1.5))
+
+
+def cheapest_shipping(weight):
+    if (ground_shipping_cost(weight) < drone_shipping_cost(weight)) and (
+            ground_shipping_cost(weight) < premium_ground_shipping_cost):
+        print("The cheapest shipping method is by ground shipping at a cost of " + str(
+            "$%.2f" % ground_shipping_cost(weight)))
+    elif (drone_shipping_cost(weight) < ground_shipping_cost(weight)) and (
+            drone_shipping_cost(weight) < premium_ground_shipping_cost):
+        print("The cheapest shipping method is by drone shipping at a cost of " + str(
+            "$%.2f" % drone_shipping_cost(weight)))
+    else:
+        print("The cheapest shipping method is by premium ground shipping at a cost of " + str(
+            "$%.2f" % premium_ground_shipping_cost))
+
+
+cheapest_shipping(4.8)
+cheapest_shipping(41.5)
